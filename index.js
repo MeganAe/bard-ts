@@ -14,8 +14,8 @@ app.get('/', (req, res) => {
 
 app.get('/bard', async (req, res) => {
   try {
-    let { question, cookie, image_url } = req.query; // Combine variable declarations
-    if (!question) return res.status(500).send({ message: "Missing Parameter: question" });
+    let { prompt, cookie, image_url } = req.query; // Combine variable declarations
+    if (!prompt) return res.status(500).send({ message: "Missing Parameter: question" });
     if (!cookie) return res.status(500).send({ message: "Missing Parameter: cookie\n\nPlease Provide your own cookie to use this API and never share it with anyone." });
  
     // Fixed parameter name
@@ -24,11 +24,11 @@ app.get('/bard', async (req, res) => {
 
     if (image_url) {
       const imageBuffer = await fetch(image_url).then(res => res.buffer()); // Use "buffer()" instead of "arrayBuffer()"
-      let response = await myBard.ask(question, { image: imageBuffer }); // Use "question" instead of "message"
+      let response = await myBard.ask(prompt, { image: imageBuffer }); // Use "question" instead of "message"
       console.log(response);
       return res.send(response);
     } else {
-      let response = await myBard.ask(question); // Use "question" instead of "message"
+      let response = await myBard.ask(prompt); // Use "question" instead of "message"
       console.log(response);
       return res.send(response);
     }
