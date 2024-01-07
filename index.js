@@ -1,4 +1,4 @@
-import Bard from "./src/bard.js";
+import Bard from "./bard.js";
 import express from 'express';
 import fetch from 'node-fetch'; // Import fetch module
 
