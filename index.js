@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.json({ intro: "Welcome to my API!" }); // Fixed typo in "welcome"
 });
 
-app.get('/google', async (req, res) => {
+app.get('/bard', async (req, res) => {
   try {
     let { question, cookie, image_url } = req.query; // Combine variable declarations
     if (!question) return res.status(500).send({ message: "Missing Parameter: question" });
