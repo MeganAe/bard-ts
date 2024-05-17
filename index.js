@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.json({ intro: "Welcome to my API!" }); // Fixed typo in "welcome"
+  res.json({ intro: "Bienvenue sur l'api de Métöushela walker!" }); // Fixed typo in "welcome"
 });
 
 app.get('/bard', async (req, res) => {
